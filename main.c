@@ -56,6 +56,13 @@ int main(int argc, char *argv[]) {
 
   if (strcmp(argv[1], "-c") == 0) {
     config = argv[2];
+  } else if (strcmp(argv[1], "--cat") == 0) {
+
+    printf("     ╱|、\n");
+    printf("     (˚ˎ 。7  \n");
+    printf("     |、˜〵          \n");
+    printf("   じしˍ,)ノ\n");
+    printf("\n Made by Aurorasphere\n");
   } else {
     print_usage(argv[0]);
     return 1;
