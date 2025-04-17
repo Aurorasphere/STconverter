@@ -17,7 +17,19 @@ void print_help(const char *prog) {
 }
 
 void print_list_config() {
-  printf("\033[1mConversion-Related configs:\033[0m");
+  printf("\033[1mConversion-Related configs:\033[0m\n");
+  printf("  s2t             Simplified to Traditional\n");
+  printf("  t2s             Traditional to Simplified\n");
+  printf("  s2tw            Simplified to Taiwan Traditional\n");
+  printf("  s2hk            Simplified to Hong Kong Traditional\n");
+  printf("  s2twp           Simplified to Taiwan Traditional (with phrases)\n");
+  printf("  tw2s            Taiwan Traditional to Simplified\n");
+  printf("  tw2sp           Taiwan Traditional to Simplified (phrase "
+         "optimized)\n");
+  printf("  t2tw            Traditional to Taiwan Traditional\n");
+  printf("  t2hk            Traditional to Hong Kong Traditional\n");
+  printf("  hk2s            Hong Kong Traditional to Simplified\n");
+  printf("  hk2t            Hong Kong Traditional to Standard Traditional\n");
 }
 
 void print_usage(const char *prog_name) {

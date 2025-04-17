@@ -9,7 +9,7 @@
 
 #define BUFFER_SIZE 1024
 
-char *read_file(const char *path);
+char *read_file(const char *path, bool force);
 bool write_file(const char *path, const char *content);
 char *read_stdin();
 

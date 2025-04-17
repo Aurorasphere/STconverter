@@ -1,7 +1,7 @@
 #include "userio.h"
 
-char *read_file(const char *path) {
-  FILE *fp = fopen(path, "r");
+char *read_file(const char *path, bool force) {
+  FILE *fp = fopen(path, "rb");
   if (!fp)
     return NULL;
 
@@ -16,8 +16,24 @@ char *read_file(const char *path) {
   }
 
   fread(buf, 1, size, fp);
-  buf[size] = '\0';
   fclose(fp);
+  buf[size] = '\0';
+
+  for (long i = 0; i < size; i++) {
+    if (buf[i] == '\0') {
+      if (force) {
+        fprintf(stderr, "\033[1;33mWarning\033[0m: Input file seems to be "
+                        "non-text file, but continuing due to --force.\n");
+        break;
+      } else {
+        fprintf(stderr, "\033[1;31mError\033[0m: Input file seems to be a "
+                        "non-text file.\n");
+        free(buf);
+        return NULL;
+      }
+    }
+  }
+
   return buf;
 }
 
